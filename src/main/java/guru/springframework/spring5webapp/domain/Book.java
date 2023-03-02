@@ -11,6 +11,8 @@ public class Book {
     private Long id;
     private String Title;
     private String isbn;
+    @ManyToOne
+    private Publisher publisher;
     @ManyToMany
     @JoinTable(name = "author_book",
             joinColumns =@JoinColumn(name = "book_id"),
@@ -55,6 +57,14 @@ public class Book {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     @Override
